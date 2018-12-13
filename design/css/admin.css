@@ -1,0 +1,29 @@
+#divtabs {
+    padding-top: 19px;
+    padding-left: 43px;
+}
+
+#menu_left_admin {
+    padding-left: 59px;
+    padding-top: 25px;
+}
+
+#my_account {
+    float: right;
+}
+
+#mceu_15 {
+    width: 99% !important;
+}
+
+.alert {
+    margin-top: 25px;
+}
+
+#divicon2 li {
+    list-style: none;
+    float: left;
+    padding-left: 12px;
+    margin: 5px;
+    cursor: pointer;
+}

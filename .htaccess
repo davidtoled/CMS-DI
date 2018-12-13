@@ -1,0 +1,42 @@
+RewriteRule ^ousommesnous5\.html$ http://localhost:8888/cmsdi/ousommesnous6.html [R]
+RewriteRule ^ousommesnous4\.html$ http://localhost:8888/cmsdi/ousommesnous5.html [R]
+RewriteRule ^ousommesnous3\.html$ http://localhost:8888/cmsdi/ousommesnous4.html [R]
+RewriteRule ^ousommesnous2\.html$ http://localhost:8888/cmsdi/ousommesnous3.html [R]
+RewriteRule ^ousommesnous\.html$ http://localhost:8888/cmsdi/ousommesnous2.html [R]
+RewriteRule ^ousommesnoussss\.html$ http://localhost:8888/cmsdi/ousommesnous.html [R]
+RewriteRule ^ousommesnous\.html$ http://localhost:8888/cmsdi/ousommesnoussss.html [R]
+RewriteRule ^ousommesnoussss2\.html$ http://localhost:8888/cmsdi/ousommesnous.html [R]
+RewriteRule ^ousommesnoussss\.html$ http://localhost:8888/cmsdi/ousommesnoussss2.html [R]
+RewriteRule ^ousommesnous\.html$ http://localhost:8888/cmsdi/ousommesnoussss.html [R]
+
+# Configure media caching
+Header unset ETag
+FileETag None
+<FilesMatch "(?i)^.*\.(ico|flv|jpg|jpeg|png|gif|js|css)$">
+Header unset Last-Modified
+Header set Expires "Fri, 21 Dec 2012 00:00:00 GMT"
+Header set Cache-Control "public, no-transform"
+</FilesMatch>
+
+# Setting PHP Version
+SetEnv PHP_VER 5
+
+# Use cookie instead of url to manage sessions
+SetEnv SESSION_USE_TRANS_SID 0
+
+# Desactivate register globales
+SetEnv REGISTER_GLOBALS 0
+
+# Setting rewrite rules
+Options +FollowSymlinks
+RewriteEngine On
+RewriteRule ^deconnexion\.html$ index.php?deconnexion [L]
+RewriteRule ^accueil\.html$ index.php [L]
+RewriteRule ^page-sitemap\.html$ index.php?p=generique&r=sitemap [L]
+RewriteRule ^([a-zA-Z0-9_]+)\.html$ index.php?p=generique&content=$1 [L]
+RewriteRule ^([a-zA-Z0-9_]+)\.html$ index.php?p=$1 [L]
+RewriteRule ^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+)\.html$ index.php?p=$1&r=$2 [L]
+RewriteRule ^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+)-([0-9]+)\.html$ index.php?p=$1&r=$2&id=$3 [L]
+RewriteRule ^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+)-page([0-9]+)\.html$ index.php?p=$1&r=$2&pagenum=$3 [L]
+RewriteRule ^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+)-([0-9]+)-page([0-9]+)\.html$ index.php?p=$1&r=$2&id=$3&pagenum=$4 [L]
+RewriteRule ^([a-zA-Z0-9_]+)-([a-zA-Z0-9_]+)-([^/*"<>|]+)-([^/\;*"<>|]+)\.html$ index.php?p=$1&r=$2&pic=$3&gal=$4
